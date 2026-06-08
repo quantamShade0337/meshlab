@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Compact mechanical keyboard case</title>
+  <desc id="desc">Isometric technical illustration of a compact keyboard case with a recessed plate, mounting holes, and USB opening.</desc>
+
+  <defs>
+    <linearGradient id="caseTop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0d2b8"/>
+      <stop offset="1" stop-color="#c97f53"/>
+    </linearGradient>
+    <linearGradient id="caseFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b8663d"/>
+      <stop offset="1" stop-color="#71351f"/>
+    </linearGradient>
+    <linearGradient id="caseSide" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#944b2c"/>
+      <stop offset="1" stop-color="#542616"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#30343a"/>
+      <stop offset="1" stop-color="#111318"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="150%" height="170%">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="760" fill="#f6f3ee"/>
+  <ellipse cx="602" cy="626" rx="465" ry="72" fill="#3b2418" opacity=".16" filter="url(#shadow)"/>
+
+  <!-- Lower case walls -->
+  <path d="M126 304 759 131 1080 315 1080 421 447 617 126 421Z" fill="url(#caseFront)"/>
+  <path d="M447 511 1080 315 1080 421 447 617Z" fill="url(#caseSide)"/>
+  <path d="M126 304 447 488 447 617 126 421Z" fill="#8d482a"/>
+
+  <!-- Top shell -->
+  <path d="M126 304 759 111 1080 295 447 488Z" fill="url(#caseTop)" stroke="#71351f" stroke-width="5" stroke-linejoin="round"/>
+
+  <!-- Inner plate recess -->
+  <path d="M203 306 754 142 1000 284 448 451Z" fill="#7c432b" opacity=".72"/>
+  <path d="M221 301 752 153 978 282 448 432Z" fill="url(#plate)" stroke="#552b1b" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Switch grid -->
+  <g fill="#08090b" stroke="#626872" stroke-width="2">
+    <path d="m268 290 45-13 25 14-45 13Z"/>
+    <path d="m331 272 45-13 25 14-45 13Z"/>
+    <path d="m394 255 45-13 25 14-45 13Z"/>
+    <path d="m457 237 45-13 25 14-45 13Z"/>
+    <path d="m520 220 45-13 25 14-45 13Z"/>
+    <path d="m583 202 45-13 25 14-45 13Z"/>
+    <path d="m646 185 45-13 25 14-45 13Z"/>
+    <path d="m709 167 45-13 25 14-45 13Z"/>
+
+    <path d="m301 323 45-13 25 14-45 13Z"/>
+    <path d="m364 305 45-13 25 14-45 13Z"/>
+    <path d="m427 288 45-13 25 14-45 13Z"/>
+    <path d="m490 270 45-13 25 14-45 13Z"/>
+    <path d="m553 253 45-13 25 14-45 13Z"/>
+    <path d="m616 235 45-13 25 14-45 13Z"/>
+    <path d="m679 218 45-13 25 14-45 13Z"/>
+    <path d="m742 200 45-13 25 14-45 13Z"/>
+    <path d="m805 183 45-13 25 14-45 13Z"/>
+
+    <path d="m334 356 45-13 25 14-45 13Z"/>
+    <path d="m397 338 45-13 25 14-45 13Z"/>
+    <path d="m460 321 45-13 25 14-45 13Z"/>
+    <path d="m523 303 45-13 25 14-45 13Z"/>
+    <path d="m586 286 45-13 25 14-45 13Z"/>
+    <path d="m649 268 45-13 25 14-45 13Z"/>
+    <path d="m712 251 45-13 25 14-45 13Z"/>
+    <path d="m775 233 45-13 25 14-45 13Z"/>
+    <path d="m838 216 45-13 25 14-45 13Z"/>
+
+    <path d="m367 389 58-17 25 14-58 17Z"/>
+    <path d="m443 368 45-13 25 14-45 13Z"/>
+    <path d="m506 350 45-13 25 14-45 13Z"/>
+    <path d="m569 333 45-13 25 14-45 13Z"/>
+    <path d="m632 315 45-13 25 14-45 13Z"/>
+    <path d="m695 298 45-13 25 14-45 13Z"/>
+    <path d="m758 280 45-13 25 14-45 13Z"/>
+    <path d="m821 263 58-17 25 14-58 17Z"/>
+
+    <path d="m411 416 72-21 25 14-72 21Z"/>
+    <path d="m501 391 45-13 25 14-45 13Z"/>
+    <path d="m564 373 166-47 25 14-166 47Z"/>
+    <path d="m748 321 45-13 25 14-45 13Z"/>
+    <path d="m811 303 72-21 25 14-72 21Z"/>
+  </g>
+
+  <!-- Mounting points -->
+  <g fill="#4a2518" stroke="#f4c8a6" stroke-width="3">
+    <ellipse cx="179" cy="315" rx="10" ry="7"/>
+    <ellipse cx="776" cy="132" rx="10" ry="7"/>
+    <ellipse cx="1023" cy="291" rx="10" ry="7"/>
+    <ellipse cx="444" cy="464" rx="10" ry="7"/>
+  </g>
+
+  <!-- USB opening -->
+  <path d="m735 119 49 28 27-8-49-28Z" fill="#17191d" stroke="#6f3924" stroke-width="3"/>
+
+  <!-- Edge highlights -->
+  <path d="M128 304 759 113 1077 295" fill="none" stroke="#ffe2c8" stroke-width="5" stroke-linecap="round" opacity=".72"/>
+  <path d="M447 488v125" fill="none" stroke="#d98557" stroke-width="3" opacity=".55"/>
+
+  <!-- Caption -->
+  <g fill="#261912">
+    <text x="126" y="676" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">COMPACT 65% CASE</text>
+    <text x="126" y="708" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" letter-spacing="2" opacity=".58">CNC ALUMINUM · 6° TYPING ANGLE · USB-C</text>
+  </g>
+</svg>

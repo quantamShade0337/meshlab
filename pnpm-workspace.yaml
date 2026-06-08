@@ -1,0 +1,10 @@
+allowBuilds:
+  onnxruntime-node: false
+  protobufjs: false
+  sharp: false
+  unrs-resolver: false
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver
+  - onnxruntime-node
+  - protobufjs
