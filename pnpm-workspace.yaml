@@ -1,3 +1,8 @@
+# Single-package repo. The `packages` field is required by pnpm when a
+# pnpm-workspace.yaml is present (Railway/CI fail without it).
+packages:
+  - .
+
 allowBuilds:
   onnxruntime-node: false
   protobufjs: false
