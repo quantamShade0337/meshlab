@@ -69,6 +69,8 @@ export interface EditorState {
   /** Lithophane mode: encode image brightness as printable thickness. */
   lithophane: boolean;
   litho: { minMm: number; maxMm: number; frame: boolean; invert: boolean };
+  /** Id of the cloud (Clerk-stored) project currently open, if any. */
+  projectId: string | null;
   activeTool: "select" | "move" | "rotate" | "scale";
   distractionFree: boolean;
   sourceComparison: boolean;
@@ -95,6 +97,10 @@ interface EditorActions {
   setModelUrl: (v: string | null) => void;
   setTargetMm: (v: number) => void;
   setBedPresetId: (v: string) => void;
+  /** Id of the cloud project currently being edited (Clerk-stored). */
+  setProjectId: (v: string | null) => void;
+  /** Apply a saved project's settings onto the editor. */
+  applyProjectState: (state: Partial<EditorState>) => void;
   setLithophane: (v: boolean) => void;
   setLitho: (p: Partial<EditorState["litho"]>) => void;
   setActiveTool: (tool: EditorState["activeTool"]) => void;
@@ -164,6 +170,7 @@ export const useEditorStore = create<FullStore>()(
       bedPresetId: "ender3",
       lithophane: false,
       litho: { minMm: 0.8, maxMm: 3, frame: true, invert: false },
+      projectId: null,
       activeTool: "select",
       distractionFree: false,
       sourceComparison: false,
@@ -216,6 +223,8 @@ export const useEditorStore = create<FullStore>()(
       setBedPresetId: (v) => set({ bedPresetId: v }),
       setLithophane: (v) => set({ lithophane: v, selectedNode: "chair" }),
       setLitho: (p) => set((st) => ({ litho: { ...st.litho, ...p } })),
+      setProjectId: (v) => set({ projectId: v }),
+      applyProjectState: (state) => set(state),
       setActiveTool: (tool) => set({ activeTool: tool }),
       setDistractionFree: (v) => set({ distractionFree: v }),
       setSourceComparison: (v) => set({ sourceComparison: v }),
@@ -301,6 +310,7 @@ export const useEditorStore = create<FullStore>()(
         bedPresetId: s.bedPresetId,
         lithophane: s.lithophane,
         litho: s.litho,
+        projectId: s.projectId,
         recentExports: s.recentExports,
         // sourceImage is intentionally NOT persisted (data URLs can be large).
       }),

@@ -19,10 +19,12 @@ import {
   RefreshCw,
   Magnet,
   Keyboard,
+  FolderOpen,
   type LucideIcon,
 } from "lucide-react";
 import { useEditorStore, type ViewName } from "@/stores/editor-store";
 import { ExportDialog } from "@/components/editor/export-dialog";
+import { ProjectsPanel } from "@/components/editor/projects-panel";
 
 const VIEWS: { id: ViewName; label: string }[] = [
   { id: "persp", label: "Persp" },
@@ -91,6 +93,7 @@ export function EditorToolbar() {
   const setShowShortcuts = useEditorStore((s) => s.setShowShortcuts);
 
   const [exportOpen, setExportOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false);
   const titleRef = useRef<HTMLInputElement>(null);
 
   return (
@@ -187,6 +190,16 @@ export function EditorToolbar() {
         <div className="w-px h-5 bg-[#2a2a2a] mx-1" />
 
         <button
+          onClick={() => setProjectsOpen(true)}
+          title="My projects"
+          aria-label="My projects"
+          className="flex items-center gap-1.5 h-7 px-2.5 rounded text-[12px] text-[#aaa] hover:text-[#e0e0e0] hover:bg-[#2a2a2a] transition-colors"
+        >
+          <FolderOpen size={13} aria-hidden />
+          <span className="hidden sm:inline">Projects</span>
+        </button>
+
+        <button
           onClick={() => setExportOpen(true)}
           className="flex items-center gap-1.5 h-7 px-3 rounded bg-[#0070f3] text-white text-[12px] font-medium hover:bg-[#0761d1] transition-colors"
           aria-label="Export model"
@@ -273,6 +286,7 @@ export function EditorToolbar() {
       </div>
 
       <ExportDialog open={exportOpen} onClose={() => setExportOpen(false)} />
+      <ProjectsPanel open={projectsOpen} onClose={() => setProjectsOpen(false)} />
     </>
   );
 }
