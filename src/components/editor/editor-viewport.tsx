@@ -126,6 +126,19 @@ export function EditorViewport() {
 
   const [modelObj, setModelObj] = useState<THREE.Object3D | null>(null);
   const [stats, setStats] = useState({ fps: 0, tris: 0 });
+  const [dismissedError, setDismissedError] = useState<string | null>(null);
+
+  // Auto-dismiss the reconstruction error overlay after a few seconds so a
+  // transient WebGL/runtime failure doesn't sit on the canvas forever. We mark
+  // the specific message as dismissed so a fresh, different error still shows.
+  useEffect(() => {
+    if (status !== "error") return;
+    const sig = message || "error";
+    const t = setTimeout(() => setDismissedError(sig), 5000);
+    return () => clearTimeout(t);
+  }, [status, message]);
+
+  const errorHidden = status === "error" && dismissedError === (message || "error");
 
   // Expose the live model group for the export dialog / print panel.
   useEffect(() => {
@@ -335,7 +348,7 @@ export function EditorViewport() {
       )}
 
       {/* On-device reconstruction status */}
-      {sourceImage && !modelUrl && !lithophane && status !== "ready" && (
+      {sourceImage && !modelUrl && !lithophane && status !== "ready" && !(status === "error" && errorHidden) && (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="rounded-lg border border-[#2a2a2a] bg-[#1a1a1a]/90 px-5 py-4 text-center backdrop-blur-sm">
             {status === "error" ? (
